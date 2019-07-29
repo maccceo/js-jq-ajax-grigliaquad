@@ -10,17 +10,18 @@ $(document).ready(function() {
 
 
 function squareClick() {
+	// salvo il quadrato cliccato per usarlo dentro funzioni qua annidate
 	var thisSquare = $(this);
 
 	// chiamata asincrona
 	$.ajax({
 		url : "https://flynn.boolean.careers/exercises/api/random/int",
 		method : "GET",
-		success : function (data,stato) {
+		success : function (data) {
 			squareFiller(data.response,thisSquare);
 		},
 		error : function (richiesta,stato,errori) {
-			alert("E' avvenuto un errore. "+errore);
+			alert("E' avvenuto un errore. "+errori);
 		}
 	});
 
